@@ -15,3 +15,21 @@ const getComputerChoice = () => {
 const getHumanChoice = () => {
   prompt("Rock, Paper, or Scissors?");
 };
+
+const playRound = (humanChoice, computerChoice) => {
+  if (humanChoice.toLowerCase() === computerChoice) {
+    return "It's a tie!";
+  } else if (
+    (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") ||
+    (humanChoice.toLowerCase() === "paper" && computerChoice === "rock") ||
+    (humanChoice.toLowerCase() === "scissors" && computerChoice === "paper")
+  ) {
+    humanScore++;
+    console.log("You won the round!");
+  } else {
+    computerScore++;
+    console.log("You lose the round!");
+  }
+};
+
+console.log(playRound("scissors", "paper"));
