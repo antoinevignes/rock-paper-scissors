@@ -37,6 +37,7 @@ const playGame = () => {
     paperButton.disabled = "disabled";
     scissorButton.disabled = "disabled";
     const reset = document.createElement("button");
+    reset.setAttribute("onClick", "window.location.reload();");
     reset.textContent = "Reset Game";
     container.appendChild(reset);
   } else if (computerScore === 5) {
@@ -45,6 +46,7 @@ const playGame = () => {
     paperButton.disabled = "disabled";
     scissorButton.disabled = "disabled";
     const reset = document.createElement("button");
+    reset.setAttribute("onClick", "window.location.reload();");
     reset.textContent = "Reset Game";
     container.appendChild(reset);
   }
