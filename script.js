@@ -14,23 +14,17 @@ const getComputerChoice = () => {
 
 const playRound = (humanChoice, computerChoice) => {
   if (humanChoice === computerChoice) {
-    alert(
-      `It's a tie! Your score: ${humanScore}. Computer score: ${computerScore}`
-    );
+    resultText.textContent = `It's a tie!`;
   } else if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     humanScore++;
-    alert(
-      `You won the round! Your score: ${humanScore}. Computer score: ${computerScore}`
-    );
+    resultText.textContent = `You won the round!`;
   } else {
     computerScore++;
-    alert(
-      `You lose the round! Your score: ${humanScore}. Computer score: ${computerScore}`
-    );
+    resultText.textContent = `You lost the round!`;
   }
 };
 
@@ -49,10 +43,21 @@ container.appendChild(scissorButton);
 
 rockButton.addEventListener("click", () => {
   playRound("rock", getComputerChoice());
+  results.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
 });
 paperButton.addEventListener("click", () => {
   playRound("paper", getComputerChoice());
+  results.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
 });
 scissorButton.addEventListener("click", () => {
   playRound("scissors", getComputerChoice());
+  results.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
 });
+
+const results = document.createElement("div");
+results.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
+
+container.appendChild(results);
+
+const resultText = document.createElement("p");
+container.appendChild(resultText);
