@@ -33,8 +33,14 @@ const playRound = (humanChoice, computerChoice) => {
 const playGame = () => {
   if (humanScore === 5) {
     hasWon.textContent = "You won the game!";
+    rockButton.disabled = "disabled";
+    paperButton.disabled = "disabled";
+    scissorButton.disabled = "disabled";
   } else if (computerScore === 5) {
     hasWon.textContent = "The computer won the game...";
+    rockButton.disabled = "disabled";
+    paperButton.disabled = "disabled";
+    scissorButton.disabled = "disabled";
   }
 };
 
