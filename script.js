@@ -36,11 +36,17 @@ const playGame = () => {
     rockButton.disabled = "disabled";
     paperButton.disabled = "disabled";
     scissorButton.disabled = "disabled";
+    const reset = document.createElement("button");
+    reset.textContent = "Reset Game";
+    container.appendChild(reset);
   } else if (computerScore === 5) {
     hasWon.textContent = "The computer won the game...";
     rockButton.disabled = "disabled";
     paperButton.disabled = "disabled";
     scissorButton.disabled = "disabled";
+    const reset = document.createElement("button");
+    reset.textContent = "Reset Game";
+    container.appendChild(reset);
   }
 };
 
