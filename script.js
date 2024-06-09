@@ -1,6 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
 
+//Functions//
+
 const getComputerChoice = () => {
   let result = Math.floor(Math.random() * 3);
   if (result === 0) {
@@ -28,11 +30,22 @@ const playRound = (humanChoice, computerChoice) => {
   }
 };
 
+const playGame = () => {
+  if (humanScore === 5) {
+    hasWon.textContent = "You won the game!";
+  } else if (computerScore === 5) {
+    hasWon.textContent = "The computer won the game...";
+  }
+};
+
+//DOM manipulation//
+
 const container = document.querySelector("#container");
 
 const rockButton = document.createElement("button");
 const paperButton = document.createElement("button");
 const scissorButton = document.createElement("button");
+
 rockButton.textContent = "Rock";
 paperButton.textContent = "Paper";
 scissorButton.textContent = "Scissors";
@@ -41,23 +54,30 @@ container.appendChild(rockButton);
 container.appendChild(paperButton);
 container.appendChild(scissorButton);
 
-rockButton.addEventListener("click", () => {
-  playRound("rock", getComputerChoice());
-  results.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
-});
-paperButton.addEventListener("click", () => {
-  playRound("paper", getComputerChoice());
-  results.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
-});
-scissorButton.addEventListener("click", () => {
-  playRound("scissors", getComputerChoice());
-  results.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
-});
-
-const results = document.createElement("div");
-results.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
-
-container.appendChild(results);
+const score = document.createElement("div");
+score.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
+container.appendChild(score);
 
 const resultText = document.createElement("p");
 container.appendChild(resultText);
+
+const hasWon = document.createElement("h1");
+container.appendChild(hasWon);
+
+//Event listeners//
+
+rockButton.addEventListener("click", () => {
+  playRound("rock", getComputerChoice());
+  score.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
+  playGame();
+});
+paperButton.addEventListener("click", () => {
+  playRound("paper", getComputerChoice());
+  score.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
+  playGame();
+});
+scissorButton.addEventListener("click", () => {
+  playRound("scissors", getComputerChoice());
+  score.textContent = `Your score: ${humanScore}. Computer score: ${computerScore}`;
+  playGame();
+});
